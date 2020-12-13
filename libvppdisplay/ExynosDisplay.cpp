@@ -972,7 +972,7 @@ bool ExynosDisplay::isOverlaySupported(hwc_layer_1_t &layer, size_t index, bool 
 #ifdef USE_DRM_BURST_LEN
         if (handle && (getDrmMode(handle->flags) != NO_DRM)) {
             if (visible_width < DRM_BURSTLEN_BYTES) {
-                DISPLAY_LOGD(eDebugOverlaySupported, "\tlayer %u: visible area is too narrow", index);
+                DISPLAY_LOGD(eDebugOverlaySupported, "\tlayer %zu: visible area is too narrow", index);
                 mLayerInfos[index]->mCheckOverlayFlag |= eUnsupportedDstWidth;
                 return false;
             }
@@ -1717,7 +1717,7 @@ int ExynosDisplay::handleWindowUpdate(hwc_display_contents_1_t __unused *content
 #ifdef USE_DRM_BURST_LEN
                     if (mHasDrmSurface) {
                         if ((size_t)((intersectionWidth * bitsPerPixel) / 8) < DRM_BURSTLEN_BYTES) {
-                            DISPLAY_LOGD(eDebugWindowUpdate, "[WIN_UPDATE] win[%d] insufficient burst length (%d)*(%d) < %d", windowIndex, intersectionWidth, bitsPerPixel, BURSTLEN_BYTES);
+                            DISPLAY_LOGD(eDebugWindowUpdate, "[WIN_UPDATE] win[%d] insufficient burst length (%d)*(%d) < %zd", windowIndex, intersectionWidth, bitsPerPixel, BURSTLEN_BYTES);
                             burstLengthCheckDone = false;
                             break;
 
