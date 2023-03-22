@@ -5,7 +5,7 @@
 
 #include <cutils/log.h>
 
-#define BUILD_DATE()   ALOGE("Build Date is (%s) (%s) ", __DATE__, __TIME__)
+#define BUILD_DATE()   // ALOGE("Build Date is (%s) (%s) ", __DATE__, __TIME__)
 #define WHERE_AM_I()   ALOGE("[(%s)%d] ", __FUNCTION__, __LINE__)
 #define LOG_DELAY()    usleep(100000)
 

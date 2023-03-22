@@ -20,6 +20,7 @@
 #include <cutils/log.h>
 
 #include "ExynosCamera1Parameters.h"
+#include "CameraParametersVendor.h"
 
 namespace android {
 
@@ -372,7 +373,7 @@ void ExynosCamera1Parameters::setDefaultParameter(void)
     /* Video Format */
     if (getAdaptiveCSCRecording() == true) {
         CLOGI("INFO(%s[%d]):video_frame_foramt == YUV420SP_NV21", __FUNCTION__, __LINE__);
-        p.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT, CameraParameters::PIXEL_FORMAT_YUV420SP_NV21);
+        p.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT, CameraParametersVendor::PIXEL_FORMAT_YUV420SP_NV21);
     } else {
         CLOGI("INFO(%s[%d]):video_frame_foramt == YUV420SP", __FUNCTION__, __LINE__);
         p.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT, CameraParameters::PIXEL_FORMAT_YUV420SP);
@@ -857,23 +858,23 @@ void ExynosCamera1Parameters::setDefaultParameter(void)
     int isoValues = getSupportedISO();
     tempStr.setTo("");
     if (isoValues & ISO_AUTO) {
-        tempStr.append(CameraParameters::ISO_AUTO);
+        tempStr.append(CameraParametersVendor::ISO_AUTO);
     }
     if (isoValues & ISO_100) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::ISO_100);
+        tempStr.append(CameraParametersVendor::ISO_100);
     }
     if (isoValues & ISO_200) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::ISO_200);
+        tempStr.append(CameraParametersVendor::ISO_200);
     }
     if (isoValues & ISO_400) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::ISO_400);
+        tempStr.append(CameraParametersVendor::ISO_400);
     }
     if (isoValues & ISO_800) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::ISO_800);
+        tempStr.append(CameraParametersVendor::ISO_800);
     }
 
     p.set("iso-values",
@@ -887,15 +888,15 @@ void ExynosCamera1Parameters::setDefaultParameter(void)
     int meteringModes = getSupportedMeteringMode();
     tempStr.setTo("");
     if (meteringModes & METERING_MODE_MATRIX) {
-        tempStr.append(CameraParameters::METERING_MATRIX);
+        tempStr.append(CameraParametersVendor::METERING_MATRIX);
     }
     if (meteringModes & METERING_MODE_CENTER) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::METERING_CENTER);
+        tempStr.append(CameraParametersVendor::METERING_CENTER);
     }
     if (meteringModes & METERING_MODE_SPOT) {
         tempStr.append(",");
-        tempStr.append(CameraParameters::METERING_SPOT);
+        tempStr.append(CameraParametersVendor::METERING_SPOT);
     }
 
     p.set("brightness", 0);
@@ -941,7 +942,7 @@ void ExynosCamera1Parameters::setDefaultParameter(void)
 #if defined(TEST_APP_HIGH_SPEED_RECORDING)
     p.set("fast-fps-mode", 0);
 #endif
-    p.set(CameraParameters::KEY_DYNAMIC_RANGE_CONTROL, "off");
+    p.set(CameraParametersVendor::KEY_DYNAMIC_RANGE_CONTROL, "off");
 
     p.set("imageuniqueid-value", 0);
 

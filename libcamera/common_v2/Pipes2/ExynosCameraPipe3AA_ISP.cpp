@@ -884,8 +884,8 @@ status_t ExynosCameraPipe3AA_ISP::startThread(void)
         return INVALID_OPERATION;
     }
 
-    m_mainThread->run();
-    m_ispThread->run();
+    m_mainThread->run(m_name);
+    m_ispThread->run(m_name);
 
     CLOGI("INFO(%s[%d]):startThread is succeed (%d)", __FUNCTION__, __LINE__, getPipeId());
 

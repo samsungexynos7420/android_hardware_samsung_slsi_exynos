@@ -27,9 +27,9 @@
 #define ANDROID_HARDWARE_SEC_CAMERA_PARAMETERS_H
 
 #include <exynos_format.h>
-#include <videodev2.h>
+#include <linux/videodev2.h>
 #include <videodev2_exynos_camera_ext.h>
-#include <videodev2_exynos_media.h>
+#include <linux/videodev2_exynos_media.h>
 
 #define NOT_FOUND       -1
 

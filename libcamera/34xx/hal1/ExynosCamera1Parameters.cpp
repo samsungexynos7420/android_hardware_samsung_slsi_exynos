@@ -20,6 +20,7 @@
 #include <cutils/log.h>
 
 #include "ExynosCamera1Parameters.h"
+#include "CameraParametersVendor.h"
 
 namespace android {
 
@@ -3556,7 +3557,7 @@ status_t ExynosCamera1Parameters::checkColorEffectMode(const CameraParameters& p
             newEffectMode = EFFECT_BLACKBOARD;
         } else if (!strcmp(strNewEffectMode, CameraParameters::EFFECT_AQUA)) {
             newEffectMode = EFFECT_AQUA;
-        } else if (!strcmp(strNewEffectMode, CameraParameters::EFFECT_POINT_BLUE)) {
+        } else if (!strcmp(strNewEffectMode, CameraParametersVendor::EFFECT_POINT_BLUE)) {
             newEffectMode = EFFECT_BLUE;
         } else if (!strcmp(strNewEffectMode, "point-red-yellow")) {
             newEffectMode = EFFECT_RED_YELLOW;

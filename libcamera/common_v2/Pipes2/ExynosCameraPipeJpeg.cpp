@@ -95,7 +95,7 @@ status_t ExynosCameraPipeJpeg::startThread(void)
         return INVALID_OPERATION;
     }
 
-    m_mainThread->run();
+    m_mainThread->run(m_name);
 
     CLOGI("INFO(%s[%d]):startThread is succeed (%d)", __FUNCTION__, __LINE__, getPipeId());
 
